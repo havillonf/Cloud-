@@ -12,12 +12,12 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "categories", schema = "public")
-public class Category {
+@Table(name = "genres", schema = "public")
+public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String categoryName;
+    private String genreName;
     @ManyToMany
     private List<Movie> movies;
 }
