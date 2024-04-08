@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "movies", schema = "public")
+@Table(name = "movie", schema = "public")
 public class Movie{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,9 @@ public class Movie{
     private String ageRating;
     private String imgIdentification;
     @ManyToMany
-    private List<User> users;
-    @ManyToMany
-    private List<Genre> categories;
+    @JoinTable(
+        name = "movie_genres",
+        joinColumns = @JoinColumn(name = "movie_id"),
+        inverseJoinColumns = @JoinColumn(name = "genre_id"))
+    private List<Genre> genres;
 }

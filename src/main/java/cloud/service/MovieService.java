@@ -5,16 +5,18 @@ import org.springframework.stereotype.Service;
 import cloud.model.Movie;
 import cloud.repository.MovieRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class MovieService {
     private final MovieRepository movieRepository;
-
-
-    public Optional<Movie> findByName(String title){
-        return movieRepository.findByMovieTitle(title);
+    public List<Movie> getAllMovies() {
+        return movieRepository.findAll();
+    }
+    public Optional<Movie> findByTitle(String title){
+        return movieRepository.findByTitle(title);
     }
     public Long create(Movie Movie){
         return movieRepository.save(Movie).getId();

@@ -1,5 +1,6 @@
 package cloud.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,12 +13,13 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "genres", schema = "public")
+@Table(name = "genre", schema = "public")
+@JsonIgnoreProperties("movies")
 public class Genre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String genreName;
-    @ManyToMany
+    @ManyToMany(mappedBy = "genres")
     private List<Movie> movies;
 }

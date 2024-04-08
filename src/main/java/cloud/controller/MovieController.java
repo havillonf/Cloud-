@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import cloud.model.Movie;
 
+import java.util.List;
+
 import static org.springframework.http.ResponseEntity.created;
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
@@ -16,9 +18,24 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 public class MovieController {
     @Autowired
     private final MovieService movieService;
+
+    @GetMapping
+    public ResponseEntity<List<Movie>> getMovies() {
+        return ResponseEntity.ok(movieService.getAllMovies());
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id){
         var movieOpt = movieService.findById(id);
+        if(movieOpt.isPresent()){
+            return ResponseEntity.ok(movieOpt.get());
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/title/{title}")
+    public ResponseEntity<?> findByTitle(@PathVariable String title){
+        var movieOpt = movieService.findByTitle(title);
         if(movieOpt.isPresent()){
             return ResponseEntity.ok(movieOpt.get());
         }
