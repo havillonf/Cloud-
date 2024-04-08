@@ -4,49 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84f89ad1-87d1-4c31-8b36-0593d14007ea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/ApplicationStart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/auth/AuthenticationRequest$AuthenticationRequestBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/auth/AuthenticationRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/auth/AuthenticationResponse$AuthenticationResponseBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/auth/AuthenticationResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/auth/RegisterRequest$RegisterRequestBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/auth/RegisterRequest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/config/ApplicationConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/config/JwtAuthenticationFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/config/JwtService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/config/SecurityConfiguration.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/controller/AuthenticationController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/controller/IngredienteController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/controller/PastaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/controller/ReceitaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/controller/UsuarioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/dto/ResponseDto$ResponseDtoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/dto/ResponseDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/model/Ingrediente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/model/Pasta.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/model/Problem$ProblemBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/model/Problem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/model/Receita$ReceitaBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/model/Receita.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/model/ResetarSenhaInfo$ResetarSenhaInfoBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/model/ResetarSenhaInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/model/Usuario$UsuarioBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/model/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/model/usuario/Cargo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/repository/IngredienteRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/repository/PastaRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/repository/ReceitaRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/repository/UsuarioRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/service/AuthenticationService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/service/EmailSenderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/service/IngredienteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/service/PastaService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/service/ReceitaService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/receite/me/service/UsuarioService.class" beforeDir="false" />
-    </list>
+    <list default="true" id="84f89ad1-87d1-4c31-8b36-0593d14007ea" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +111,7 @@
       <workItem from="1701744031112" duration="3779000" />
       <workItem from="1712262001703" duration="609000" />
       <workItem from="1712263455263" duration="69000" />
-      <workItem from="1712599377074" duration="2966000" />
+      <workItem from="1712599377074" duration="3285000" />
     </task>
     <servers />
   </component>

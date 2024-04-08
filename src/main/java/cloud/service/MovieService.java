@@ -13,8 +13,8 @@ public class MovieService {
     private final MovieRepository movieRepository;
 
 
-    public Optional<Movie> findByName(String name){
-        return movieRepository.findByMovieName(name);
+    public Optional<Movie> findByName(String title){
+        return movieRepository.findByMovieTitle(title);
     }
     public Long create(Movie Movie){
         return movieRepository.save(Movie).getId();
