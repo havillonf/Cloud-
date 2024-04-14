@@ -8,7 +8,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Builder
 @NoArgsConstructor
@@ -22,4 +21,9 @@ public class Genre {
     private String genreName;
     @ManyToMany(mappedBy = "genres")
     private List<Movie> movies;
+
+    @Override
+    public String toString() {
+        return genreName;
+    }
 }
