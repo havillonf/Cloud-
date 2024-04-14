@@ -1,5 +1,8 @@
 package cloud.model;
 
+import lombok.Getter;
+
+@Getter
 public enum AgeRatingEnum {
     G("G"),
     PG("PG"),
@@ -12,6 +15,10 @@ public enum AgeRatingEnum {
     TV_G("TV-G"),
     TV_PG("TV-PG");
 
+    private final String rating;
+
     AgeRatingEnum(String rating) {
+        this.rating = rating;
     }
+
 }
