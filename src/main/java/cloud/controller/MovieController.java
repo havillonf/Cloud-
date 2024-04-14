@@ -1,5 +1,7 @@
 package cloud.controller;
 
+import cloud.model.Genre;
+import cloud.service.GenreService;
 import cloud.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import java.util.List;
 public class MovieController {
     @Autowired
     private final MovieService movieService;
+    private final GenreService genreService;
 
     @GetMapping
     public String index(){
@@ -44,6 +47,9 @@ public class MovieController {
     public String showUpdateForm(@RequestParam("id") Long id, Model model){
         var movieOpt = movieService.findById(id);
         if(movieOpt.isPresent()){
+            List<Genre> genres = genreService.getAllGenres();
+
+            model.addAttribute("genres", genres);
             model.addAttribute("movie", movieOpt.get());
             return "movie_form";
         }
@@ -55,7 +61,10 @@ public class MovieController {
 
         Movie movie = new Movie();
 
+        List<Genre> genres = genreService.getAllGenres();
+
         model.addAttribute("movie", movie);
+        model.addAttribute("genres", genres);
         return "movie_form";
     }
 
@@ -68,7 +77,13 @@ public class MovieController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("movie") Movie movie, @RequestParam("file") MultipartFile file){
+    public String save(@ModelAttribute("movie") Movie movie, @RequestParam("file") MultipartFile file, @RequestParam("file") Genre genre){
+
+        List<Genre> movie_genres = movie.getGenres();
+        movie_genres.clear();
+        movie_genres.add(genre);
+
+        movie.setGenres(movie_genres);
 
         movieService.create(movie, file);
 
