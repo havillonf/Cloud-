@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${movie.title}"/>
+</head>
+<body>
+    <h1>30movies</h1>
+    <h3 th:text="${movie.title}"/>
+    <hr>
+    <div>
+        <img th:src="'https://projeto30-images.s3.amazonaws.com/movies-images/' + ${movie.imgIdentification} + '.png'"/>
+    </div>
+    <div>
+        <span>Description:</span>
+        <p th:text="${movie.description}"/>
+    </div>
+    <div>
+        <span>Director:</span> <span th:text="${movie.director}"/>
+    </div>
+    <div>
+        <span>Rating:</span> <span th:text="${movie.rating}"/>
+    </div>
+    <div>
+        <span>Release Year:</span> <span th:text="${movie.releaseYear}"/>
+    </div>
+    <div>
+        <span>Runtime:</span> <span th:text="${movie.runtime} + ' minutes'"/>
+    </div>
+    <div>
+        <span>Age Rating:</span> <span th:text="${movie.ageRating}"/>
+    </div>
+
+    <hr>
+    <a th:href="@{/movies/list}" th:text="'Return to movies list'"/>
+
+</body>
+</html>

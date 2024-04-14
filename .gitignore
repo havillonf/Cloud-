@@ -12,7 +12,7 @@ logs/
 tmp/
 *.tmp
 *.bak
-*.swp
+*.s
 *~.nib
 local.properties
 .recommenders/
