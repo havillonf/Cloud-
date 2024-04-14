@@ -23,7 +23,7 @@ public class Movie{
     private double rating;
     private String director;
     private String description;
-    private String ageRating;
+    private AgeRatingEnum ageRating;
     private String imgIdentification;
     @ManyToMany
     @JoinTable(
