@@ -1,7 +1,5 @@
 # Arquivos do IntelliJ
-.idea/
-*.iml
-*.iws
+.idea/*
 
 # Arquivos de log
 log/
