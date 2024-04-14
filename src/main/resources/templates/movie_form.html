@@ -26,20 +26,25 @@
 
         <input type="text" th:field="*{rating}" placeholder="Rating"/>
 
-        <input type="text" th:field="*{ageRating}" placeholder="Age Rating"/>
+        <label for="age_rating">Age Rating:</label>
+        <select name="age_rating" id="age_rating" th:field="*{ageRating}">
+            <option value="">Select an age rating</option>
+
+            <option th:each="age_rating : ${age_ratings}" th:value="${age_rating}" th:text="${age_rating}"></option>
+        </select>
 
         <label for="genre">Genre:</label>
         <select name="genre" id="genre">
             <option value="">Select a genre</option>
             <!-- Iterate over the genres list -->
-            <option th:each="genre : ${genres}" th:value="${genre}" th:text="${genre.genreName}"></option>
+            <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.genreName}"></option>
         </select>
 
         <input type="file" name="file"/>
 
         <input type="hidden" th:field="*{imgIdentification}" >
 
-        <button type="submit">Next</button>
+        <button type="submit">Save</button>
 
 
     </form>
