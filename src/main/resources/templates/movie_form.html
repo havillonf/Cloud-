@@ -5,6 +5,36 @@
     <title>Movie Form</title>
 </head>
 <body>
+    <h1>30movies</h1>
+    <hr>
 
+    <form action="#" th:action="@{/movies/save}"
+          th:object="${movie}" method="POST" enctype="multipart/form-data">
+
+        <!-- Add hidden form field to handle the update -->
+        <input type="hidden" th:field="*{id}">
+
+        <input type="text" th:field="*{title}" placeholder="Title"/>
+
+        <input type="text" th:field="*{director}" placeholder="Director"/>
+
+        <input type="text" th:field="*{description}" placeholder="Description"/>
+
+        <input type="text" th:field="*{releaseYear}" placeholder="Release Year"/>
+
+        <input type="text" th:field="*{runtime}" placeholder="Runtime"/>
+
+        <input type="text" th:field="*{rating}" placeholder="Rating"/>
+
+        <input type="text" th:field="*{ageRating}" placeholder="Age Rating"/>
+
+        <input type="file" name="file"/>
+
+        <input type="hidden" th:field="*{imgIdentification}" >
+
+        <button type="submit">Next</button>
+
+
+    </form>
 </body>
 </html>
