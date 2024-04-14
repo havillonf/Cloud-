@@ -3,16 +3,12 @@ package cloud.controller;
 import cloud.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import cloud.model.Movie;
 
 import java.util.List;
-
-import static org.springframework.http.ResponseEntity.created;
-import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
 @Controller
 @RequestMapping("movies")
@@ -33,13 +29,40 @@ public class MovieController {
         return "list";
     }
 
-    @GetMapping("/{id}")
-    public String findById(@PathVariable Long id, Model model){
+    @GetMapping("/info")
+    public String showMovieInfo(@RequestParam("id") Long id, Model model){
         var movieOpt = movieService.findById(id);
         if(movieOpt.isPresent()){
             model.addAttribute("movie", movieOpt.get());
             return "movie_info";
         }
+        return "redirect:list";
+    }
+
+    @GetMapping("/update")
+    public String showUpdateForm(@RequestParam("id") Long id, Model model){
+        var movieOpt = movieService.findById(id);
+        if(movieOpt.isPresent()){
+            model.addAttribute("movie", movieOpt.get());
+            return "movie_form";
+        }
+        return "redirect:list";
+    }
+
+    @GetMapping("/create")
+    public String showCreateForm(Model model){
+
+        Movie movie = new Movie();
+
+        model.addAttribute("movie", movie);
+        return "movie_form";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id){
+
+        movieService.delete(id);
+
         return "redirect:list";
     }
 
