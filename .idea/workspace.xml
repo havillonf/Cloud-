@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84f89ad1-87d1-4c31-8b36-0593d14007ea" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cloud/controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/controller/MovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/model/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/model/Genre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/model/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/model/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/repository/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/repository/MovieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cloud/service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cloud/service/MovieService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/cloud/controller/MovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cloud/controller/MovieController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cloud/model/Genre$GenreBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cloud/model/Genre$GenreBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cloud/model/Genre.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cloud/model/Genre.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cloud/model/Movie$MovieBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cloud/model/Movie$MovieBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cloud/model/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cloud/model/Movie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cloud/model/User$UserBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cloud/model/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cloud/repository/MovieRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cloud/repository/MovieRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/cloud/service/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cloud/service/MovieService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,11 +23,15 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -52,6 +47,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -66,8 +62,9 @@
     "Spring Boot.ApplicationStart.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/havil/IdeaProjects/cloud",
+    "last_opened_file_path": "C:/Users/walru/OneDrive/Documentos/Nuvem/cloud",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -91,7 +88,7 @@
   </component>
   <component name="RunManager">
     <configuration name="ApplicationStart" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="receite.me" />
+      <module name="cloud" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="cloud.ApplicationStart" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -101,8 +98,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
       </set>
     </attachedChunks>
   </component>
@@ -129,6 +125,7 @@
       <workItem from="1712262001703" duration="609000" />
       <workItem from="1712263455263" duration="69000" />
       <workItem from="1712599377074" duration="6239000" />
+      <workItem from="1713112949422" duration="2278000" />
     </task>
     <servers />
   </component>
@@ -153,11 +150,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/receite/me/config/JwtAuthenticationFilter.java</url>
           <line>36</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/cloud/controller/MovieController.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -4,6 +4,8 @@ import cloud.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import cloud.model.Movie;
 
@@ -12,7 +14,7 @@ import java.util.List;
 import static org.springframework.http.ResponseEntity.created;
 import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequest;
 
-@RestController
+@Controller
 @RequestMapping("movies")
 @RequiredArgsConstructor
 public class MovieController {
@@ -20,19 +22,28 @@ public class MovieController {
     private final MovieService movieService;
 
     @GetMapping
-    public ResponseEntity<List<Movie>> getMovies() {
-        return ResponseEntity.ok(movieService.getAllMovies());
+    public String index(){
+        return "index";
+    }
+
+    @GetMapping("list")
+    public String listMovies(Model model) {
+        List<Movie> movies = movieService.getAllMovies();
+        model.addAttribute("movies", movies);
+        return "list";
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id){
+    public String findById(@PathVariable Long id, Model model){
         var movieOpt = movieService.findById(id);
         if(movieOpt.isPresent()){
-            return ResponseEntity.ok(movieOpt.get());
+            model.addAttribute("movie", movieOpt.get());
+            return "movie_info";
         }
-        return ResponseEntity.notFound().build();
+        return "redirect:list";
     }
 
+    /*
     @GetMapping("/title/{title}")
     public ResponseEntity<?> findByTitle(@PathVariable String title){
         var movieOpt = movieService.findByTitle(title);
@@ -41,6 +52,7 @@ public class MovieController {
         }
         return ResponseEntity.notFound().build();
     }
+
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody Movie movie){
@@ -73,4 +85,5 @@ public class MovieController {
             return ResponseEntity.notFound().build();
         }
     }
+    */
 }
