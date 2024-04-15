@@ -3,50 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>Movie Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
+
+<div class="container">
     <h1>30movies</h1>
     <hr>
 
-    <form action="#" th:action="@{/movies/save}"
+    <form class="row g-3" action="#" th:action="@{/movies/save}"
           th:object="${movie}" method="POST" enctype="multipart/form-data">
 
-        <!-- Add hidden form field to handle the update -->
+        <div class="col-md-6">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" th:field="*{title}" class="form-control" id="title" placeholder="Title">
+        </div>
+        <div class="col-md-6">
+            <label for="director" class="form-label">Director</label>
+            <input type="text" th:field="*{director}" class="form-control" id="director" placeholder="Director">
+        </div>
+        <div class="col-12">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="Description">
+        </div>
+        <div class="col-md-4">
+            <label for="releaseYear" class="form-label">Release Year</label>
+            <input type="text" th:field="*{releaseYear}" class="form-control" id="releaseYear" placeholder="Release Year">
+        </div>
+        <div class="col-md-4">
+            <label for="runtime" class="form-label">Runtime</label>
+            <input type="text" th:field="*{runtime}" class="form-control" id="runtime" placeholder="Runtime">
+        </div>
+        <div class="col-md-4">
+            <label for="rating" class="form-label">Rating</label>
+            <input type="text" th:field="*{rating}" class="form-control" id="rating" placeholder="Rating">
+        </div>
+        <div class="col-md-6">
+            <label for="age_rating" class="form-label">Age Rating</label>
+            <select name="age_rating" id="age_rating" th:field="*{ageRating}" class="form-select">
+                <option value="">Select an age rating</option>
+                <option th:each="age_rating : ${age_ratings}" th:value="${age_rating}" th:text="${age_rating}"></option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="genre" class="form-label">Genre</label>
+            <select name="genre" id="genre" class="form-select">
+                <option value="">Select a genre</option>
+                <!-- Iterate over the genres list -->
+                <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.genreName}"></option>
+            </select>
+        </div>
+        <div class="col-12">
+            <label for="file" class="form-label">Movie poster image</label>
+            <input type="file" name="file" id="file" class="form-control">
+        </div>
+
         <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="*{imgIdentification}">
 
-        <input type="text" th:field="*{title}" placeholder="Title"/>
-
-        <input type="text" th:field="*{director}" placeholder="Director"/>
-
-        <input type="text" th:field="*{description}" placeholder="Description"/>
-
-        <input type="text" th:field="*{releaseYear}" placeholder="Release Year"/>
-
-        <input type="text" th:field="*{runtime}" placeholder="Runtime"/>
-
-        <input type="text" th:field="*{rating}" placeholder="Rating"/>
-
-        <label for="age_rating">Age Rating:</label>
-        <select name="age_rating" id="age_rating" th:field="*{ageRating}">
-            <option value="">Select an age rating</option>
-
-            <option th:each="age_rating : ${age_ratings}" th:value="${age_rating}" th:text="${age_rating}"></option>
-        </select>
-
-        <label for="genre">Genre:</label>
-        <select name="genre" id="genre">
-            <option value="">Select a genre</option>
-            <!-- Iterate over the genres list -->
-            <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.genreName}"></option>
-        </select>
-
-        <input type="file" name="file"/>
-
-        <input type="hidden" th:field="*{imgIdentification}" >
-
-        <button type="submit">Save</button>
-
-
+        <div class="col-12">
+            <button type="submit" class="btn btn-info">Save</button>
+        </div>
     </form>
+</div>
 </body>
 </html>

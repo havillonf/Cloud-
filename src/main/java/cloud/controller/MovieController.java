@@ -99,10 +99,6 @@ public class MovieController {
     @PostMapping("/save")
     public String save(@ModelAttribute("movie") Movie movie, @RequestParam("file") MultipartFile file, @RequestParam("genre") Long id){
 
-        log.info(String.valueOf(id));
-
-        log.info("Age rating = " + movie.getAgeRating());
-
         List<Genre> movie_genres = new ArrayList<Genre>();
 
         Optional<Genre> genre_opt = genreRepository.findById(id);
@@ -112,6 +108,18 @@ public class MovieController {
         movie_genres.add(genre);
 
         movie.setGenres(movie_genres);
+
+        String fileName = file.getOriginalFilename();
+
+        log.info(fileName);
+
+        int dotIndex = fileName.lastIndexOf('.');
+
+        String fileNameWithoutExtension = (dotIndex == -1) ? fileName : fileName.substring(0, dotIndex);
+
+        log.info(fileNameWithoutExtension);
+
+        movie.setImgIdentification(fileNameWithoutExtension);
 
         movieService.create(movie, file);
 

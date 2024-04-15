@@ -4,6 +4,7 @@ import cloud.util.S3Utils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import cloud.model.Movie;
 import cloud.repository.MovieRepository;
@@ -22,7 +23,17 @@ import java.util.Optional;
 @Slf4j
 public class MovieService {
     private final MovieRepository movieRepository;
-    private String bucketName = "projeto30-images";
+    private String bucketName = "mybucketoaaa";
+
+    @Value("${aws.accessKeyId}")
+    private String accessKey;
+
+    @Value("${aws.secretKey}")
+    private String secretKey;
+
+    @Value("${aws.region.static}")
+    private String region;
+
     @Autowired
     S3Client s3Client;
     public List<Movie> getAllMovies() {
@@ -37,9 +48,11 @@ public class MovieService {
         try {
             byte[] bytes = img.getBytes();  //Multipart file uploaded on server
             InputStream inputStream = new ByteArrayInputStream(bytes);
+            log.info(accessKey);
+            log.info(secretKey);
             PutObjectRequest putObjectRequest = PutObjectRequest.builder()
                     .bucket(bucketName)
-                    .key(movie.getImgIdentification())
+                    .key(img.getOriginalFilename())
                     .build();
 
             s3Client.putObject(putObjectRequest, RequestBody.fromInputStream(inputStream, bytes.length));
