@@ -39,7 +39,7 @@ public class MovieService {
             InputStream inputStream = new ByteArrayInputStream(bytes);
             PutObjectRequest putObjectRequest = PutObjectRequest.builder()
                     .bucket(bucketName)
-                    .key(img.getOriginalFilename())
+                    .key(movie.getImgIdentification())
                     .build();
 
             s3Client.putObject(putObjectRequest, RequestBody.fromInputStream(inputStream, bytes.length));

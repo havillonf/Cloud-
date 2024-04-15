@@ -33,7 +33,7 @@ public class S3Utils {
     public S3Client s3Client() {
 
         return S3Client.builder()
-                .region(Region.of("us-east-1"))
+                .region(Region.of(region))
                 .credentialsProvider(StaticCredentialsProvider.create(AwsBasicCredentials.create(accessKey, secretKey)))
                 .build();
     }
