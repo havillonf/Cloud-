@@ -3,14 +3,17 @@ package cloud.service;
 import cloud.util.S3Utils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import cloud.model.Movie;
 import cloud.repository.MovieRepository;
 import org.springframework.web.multipart.MultipartFile;
+import software.amazon.awssdk.core.sync.RequestBody;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +22,9 @@ import java.util.Optional;
 @Slf4j
 public class MovieService {
     private final MovieRepository movieRepository;
-
+    private String bucketName = "projeto30-images";
+    @Autowired
+    S3Client s3Client;
     public List<Movie> getAllMovies() {
         return movieRepository.findAll();
     }
@@ -30,7 +35,14 @@ public class MovieService {
 
     public Long create(Movie movie, MultipartFile img){
         try {
-            S3Utils.uploadFile(movie.getImgIdentification(), img.getInputStream());
+            byte[] bytes = img.getBytes();  //Multipart file uploaded on server
+            InputStream inputStream = new ByteArrayInputStream(bytes);
+            PutObjectRequest putObjectRequest = PutObjectRequest.builder()
+                    .bucket(bucketName)
+                    .key(img.getOriginalFilename())
+                    .build();
+
+            s3Client.putObject(putObjectRequest, RequestBody.fromInputStream(inputStream, bytes.length));
             log.info("File uploaded : {}", movie.getTitle());
         }catch(Exception e){
             log.error(e.getMessage());

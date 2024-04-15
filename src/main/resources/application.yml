@@ -6,9 +6,3 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-amazonProperties:
-  endpointUrl: https://s3.us-east-1.amazonaws.com
-  accessKey: ASIA2UC3A7QI3TM4SCO2
-  secretKey: u9TYQXtHlyIF6lEIThnEGWYTxOLIUdR+/UlUp7yw
-  region: us-east-1
