@@ -7,36 +7,41 @@
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>30movies</h1>
-        <h3 th:text="${movie.title}" />
-        <hr>
-        <div>
-            <img th:src="'https://projeto30-images.s3.amazonaws.com/movies-images/' + ${movie.imgIdentification} + '.png'"/>
+    <h1 class="mb-4">30Movies</h1>
+    <h3 th:text="${movie.title}" class="mb-4"/>
+    <hr>
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <img th:src="'https://mybucketoaaa.s3.amazonaws.com/' + ${movie.imgIdentification} + '.png'" class="img-fluid" alt="Movie Poster"/>
         </div>
-        <div>
-            <span>Description:</span>
-            <p th:text="${movie.description}"/>
+        <div class="col-md-8">
+            <div class="mb-4">
+                <h5>Description:</h5>
+                <p th:text="${movie.description}" class="lead mb-0"/>
+            </div>
+            <div class="mb-4">
+                <h5>Director:</h5> <span th:text="${movie.director}" class="lead mb-0"/>
+            </div>
+            <div class="mb-4">
+                <h5>Rating:</h5> <span th:text="${movie.rating}" class="lead mb-0"/>
+            </div>
+            <div class="mb-4">
+                <h5>Release Year:</h5> <span th:text="${movie.releaseYear}" class="lead mb-0"/>
+            </div>
+            <div class="mb-4">
+                <h5>Runtime:</h5> <span th:text="${movie.runtime} + ' minutes'" class="lead mb-0"/>
+            </div>
+            <div class="mb-4">
+                <h5>Age Rating:</h5> <span th:text="${movie.ageRating}" class="lead mb-0"/>
+            </div>
         </div>
-        <div>
-            <span>Director:</span> <span th:text="${movie.director}"/>
-        </div>
-        <div>
-            <span>Rating:</span> <span th:text="${movie.rating}"/>
-        </div>
-        <div>
-            <span>Release Year:</span> <span th:text="${movie.releaseYear}"/>
-        </div>
-        <div>
-            <span>Runtime:</span> <span th:text="${movie.runtime} + ' minutes'"/>
-        </div>
-        <div>
-            <span>Age Rating:</span> <span th:text="${movie.ageRating}"/>
-        </div>
+    </div>
 
-        <hr>
-        <a th:href="@{/movies/list}" th:text="'Return to movies list'"/>
-    <div/>
+    <hr>
+    <a th:href="@{/movies/list}" th:text="'Return to movies list'" class="btn btn-primary"/>
+</div>
+
 </body>
 </html>
