@@ -1,6 +1,5 @@
 package cloud.service;
 
-import cloud.util.S3Utils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +10,9 @@ import cloud.repository.MovieRepository;
 import org.springframework.web.multipart.MultipartFile;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.CreateBucketRequest;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 import java.io.*;
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,8 +35,6 @@ public class MovieService {
     @Autowired
     S3Client s3Client;
 
-    @Autowired
-    DynamoDBService dynamoDBService;
 
     public List<Movie> getAllMovies() {
         return movieRepository.findAll();
@@ -62,7 +57,6 @@ public class MovieService {
 
             s3Client.putObject(putObjectRequest, RequestBody.fromInputStream(inputStream, bytes.length));
             log.info("File uploaded : {}", movie.getTitle());
-            dynamoDBService.putItem("Create movie" + movie.getTitle(), LocalDateTime.now().toString());
         }catch(Exception e){
             log.error(e.getMessage());
         }
